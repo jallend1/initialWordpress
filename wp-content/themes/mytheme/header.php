@@ -7,5 +7,12 @@
         <title>My Initial WordPress Page</title>
         <?php wp_head(); ?>
     </head>
-<body>
+    <?php 
+        if( is_front_page() ) : 
+            $jason_classes = array('jasons-class', 'my-class');
+        else: 
+            $jason_classes = array('no-jason');
+        endif;
+    ?>
+<body <?php body_class($jason_classes);?> >
     <?php wp_nav_menu(array('theme_location' => 'primary'));?>
